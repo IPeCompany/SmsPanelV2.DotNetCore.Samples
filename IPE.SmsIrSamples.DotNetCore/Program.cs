@@ -10,6 +10,7 @@ try
 
     // report samples
     //await ReportAsyncSamples.GetSendLiveReportAsync();
+    //await ReportAsyncSamples.GetSendArchiveReportAsync();
     await Console.Out.WriteLineAsync("Finished!");
 }
 catch (Exception ex)

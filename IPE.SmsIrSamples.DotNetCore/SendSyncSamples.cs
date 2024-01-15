@@ -44,10 +44,10 @@ public static class SendSyncSamples
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه پیامک ارسال شده
+            // شناسه پیامک ارسال شده
             int messageId = sendResult.Data.MessageId;
 
-            //هزینه ارسال
+            // هزینه ارسال
             decimal cost = sendResult.Data.Cost;
 
             string resultDescription = "Your message was sent successfully." +
@@ -108,13 +108,13 @@ public static class SendSyncSamples
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه مجموعه ارسال ارسال شده
+            // شناسه مجموعه ارسال ارسال شده
             Guid packId = sendResult.Data.PackId;
 
-            //لیست شناسه پیامک‌های ارسال شده
+            // لیست شناسه پیامک‌های ارسال شده
             int?[] messageIds = sendResult.Data.MessageIds;
 
-            //هزینه ارسال
+            // هزینه ارسال
             decimal cost = sendResult.Data.Cost;
 
             string resultDescription = "Your message was sent successfully." +
@@ -181,13 +181,13 @@ public static class SendSyncSamples
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه مجموعه ارسال ارسال شده
+            // شناسه مجموعه ارسال ارسال شده
             Guid packId = sendResult.Data.PackId;
 
-            //لیست شناسه پیامک‌های ارسال شده
+            // لیست شناسه پیامک‌های ارسال شده
             int?[] messageIds = sendResult.Data.MessageIds;
 
-            //هزینه ارسال
+            // هزینه ارسال
             decimal cost = sendResult.Data.Cost;
 
             string resultDescription = "Your message was sent successfully." +

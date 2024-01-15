@@ -8,9 +8,13 @@ try
     //await SendAsyncSamples.SendBulkAsync();
     //await SendAsyncSamples.SendLikeToLikeAsync();
 
-    // report samples
-    //await ReportAsyncSamples.GetSendLiveReportAsync();
-    //await ReportAsyncSamples.GetSendArchiveReportAsync();
+    // get send report samples
+    //await GetSendReportAsyncSamples.GetSendLiveReportAsync();
+    //await GetSendReportAsyncSamples.GetSendArchiveReportAsync();
+    //await GetSendReportAsyncSamples.GetSingleMessageReportAsync();
+    //await GetSendReportAsyncSamples.GetSendPacksLiveReportAsync();
+    //await GetSendReportAsyncSamples.GetSendPackReportAsync();
+
     await Console.Out.WriteLineAsync("Finished!");
 }
 catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using IPE.SmsIrClient;
 using IPE.SmsIrClient.Models.Requests;
+using IPE.SmsIrClient.Models.Results;
 using System;
 using System.Threading.Tasks;
 
@@ -41,15 +42,18 @@ public static class SendAsyncSamples
             };
 
             // انجام ارسال وریفای
-            var sendResult = await smsIr.VerifySendAsync(mobile, templateId, verifySendParameters);
+            var response = await smsIr.VerifySendAsync(mobile, templateId, verifySendParameters);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
+            // گرفتن بخش دیتا خروجی
+            VerifySendResult verifySendResult = response.Data;
+
             // شناسه پیامک ارسال شده
-            int messageId = sendResult.Data.MessageId;
+            int messageId = verifySendResult.MessageId;
 
             // هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            decimal cost = verifySendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Message Id: {messageId} " +
@@ -57,7 +61,7 @@ public static class SendAsyncSamples
 
             await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
@@ -105,18 +109,21 @@ public static class SendAsyncSamples
             int? sendDateTime = null;
 
             // انجام ارسال گروهی
-            var sendResult = await smsIr.BulkSendAsync(lineNumber, messageText, mobiles, sendDateTime);
+            var response = await smsIr.BulkSendAsync(lineNumber, messageText, mobiles, sendDateTime);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
+            // گرفتن بخش دیتا خروجی
+            SendResult sendResult = response.Data;
+
             // شناسه مجموعه ارسال ارسال شده
-            Guid packId = sendResult.Data.PackId;
+            Guid packId = sendResult.PackId;
 
             // لیست شناسه پیامک‌های ارسال شده
-            int?[] messageIds = sendResult.Data.MessageIds;
+            int?[] messageIds = sendResult.MessageIds;
 
             // هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            decimal cost = sendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Pack Id: {packId} " +
@@ -125,7 +132,7 @@ public static class SendAsyncSamples
 
             await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
@@ -178,18 +185,21 @@ public static class SendAsyncSamples
             int? sendDateTime = null;
 
             // انجام ارسال نظیر به نظیر
-            var sendResult = await smsIr.LikeToLikeSendAsync(lineNumber, messageTexts, mobiles, sendDateTime);
+            var response = await smsIr.LikeToLikeSendAsync(lineNumber, messageTexts, mobiles, sendDateTime);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
+            // گرفتن بخش دیتا خروجی
+            SendResult sendResult = response.Data;
+
             // شناسه مجموعه ارسال ارسال شده
-            Guid packId = sendResult.Data.PackId;
+            Guid packId = sendResult.PackId;
 
             // لیست شناسه پیامک‌های ارسال شده
-            int?[] messageIds = sendResult.Data.MessageIds;
+            int?[] messageIds = sendResult.MessageIds;
 
             // هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            decimal cost = sendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Pack Id: {packId} " +
@@ -198,7 +208,7 @@ public static class SendAsyncSamples
 
             await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode

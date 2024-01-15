@@ -36,6 +36,12 @@ public static class UnixTimeSamples
         return Convert.ToInt32(utcDateTime.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds);
     }
 
+    // تبدیل زمان یونیکس به تاریخ میلادی
+    public static DateTime ToDateTime(long unixTime)
+    {
+        return DateTimeOffset.FromUnixTimeSeconds(unixTime).DateTime.ToLocalTime();
+    }
+
     // شما با این کد می‌تواند زمان یونیکس ساعت 10 روز بعد را دریافت کنید
     public static int Get10AmOfTheNextDayUnixTime()
     {

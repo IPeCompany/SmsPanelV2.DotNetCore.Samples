@@ -61,8 +61,18 @@ public static class SendSyncSamples
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            string errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
+
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
 
             Console.Out.WriteLine(errorDescription);
         }
@@ -98,7 +108,7 @@ public static class SendSyncSamples
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه دسته پیامکی ارسال شده
+            //شناسه مجموعه ارسال ارسال شده
             Guid packId = sendResult.Data.PackId;
 
             //لیست شناسه پیامک‌های ارسال شده
@@ -119,8 +129,18 @@ public static class SendSyncSamples
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            var errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
+
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
 
             Console.Out.WriteLine(errorDescription);
         }
@@ -161,7 +181,7 @@ public static class SendSyncSamples
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه دسته پیامکی ارسال شده
+            //شناسه مجموعه ارسال ارسال شده
             Guid packId = sendResult.Data.PackId;
 
             //لیست شناسه پیامک‌های ارسال شده
@@ -182,8 +202,18 @@ public static class SendSyncSamples
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            var errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
+
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
 
             Console.Out.WriteLine(errorDescription);
         }

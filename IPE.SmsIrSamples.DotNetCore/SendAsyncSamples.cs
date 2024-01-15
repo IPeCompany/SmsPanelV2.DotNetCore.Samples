@@ -1,16 +1,18 @@
 ﻿using IPE.SmsIrClient;
 using IPE.SmsIrClient.Models.Requests;
+using IPE.SmsIrClient.Models.Results;
 using System;
+using System.Threading.Tasks;
 
-namespace IPE.SmsIrSamples.DotNetCore.Sync;
+namespace IPE.SmsIrSamples.DotNetCore;
 
-public static class SendSamples
+public static class SendAsyncSamples
 {
     /// <summary>
-    /// نمونه ارسال وریفای سینک
+    /// نمونه ارسال وریفای
     /// https://app.sms.ir/developer/help/verify
     /// </summary>
-    public static void SendSampleVerify()
+    public static async Task SendVerifyAsync()
     {
         try
         {
@@ -40,39 +42,52 @@ public static class SendSamples
             };
 
             // انجام ارسال وریفای
-            var sendResult = smsIr.VerifySend(mobile, templateId, verifySendParameters);
+            var response = await smsIr.VerifySendAsync(mobile, templateId, verifySendParameters);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه پیامک ارسال شده
-            int messageId = sendResult.Data.MessageId;
+            // گرفتن بخش دیتا خروجی
+            VerifySendResult verifySendResult = response.Data;
 
-            //هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            // شناسه پیامک ارسال شده
+            int messageId = verifySendResult.MessageId;
+
+            // هزینه ارسال
+            decimal cost = verifySendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Message Id: {messageId} " +
                 $"\n - Cost: {cost}";
 
-            Console.Out.WriteLine(resultDescription);
+            await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            string errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
 
-            Console.Out.WriteLine(errorDescription);
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
+
+            await Console.Out.WriteLineAsync(errorDescription);
         }
     }
 
     /// <summary>
-    /// نمونه ارسال گروهی سینک
+    /// نمونه ارسال گروهی
     /// https://app.sms.ir/developer/help/bulk
     /// </summary>
-    public static void SendSampleBulk()
+    public static async Task SendBulkAsync()
     {
         try
         {
@@ -94,43 +109,56 @@ public static class SendSamples
             int? sendDateTime = null;
 
             // انجام ارسال گروهی
-            var sendResult = smsIr.BulkSend(lineNumber, messageText, mobiles, sendDateTime);
+            var response = await smsIr.BulkSendAsync(lineNumber, messageText, mobiles, sendDateTime);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه دسته پیامکی ارسال شده
-            Guid packId = sendResult.Data.PackId;
+            // گرفتن بخش دیتا خروجی
+            SendResult sendResult = response.Data;
 
-            //لیست شناسه پیامک‌های ارسال شده
-            int?[] messageIds = sendResult.Data.MessageIds;
+            // شناسه مجموعه ارسال ارسال شده
+            Guid packId = sendResult.PackId;
 
-            //هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            // لیست شناسه پیامک‌های ارسال شده
+            int?[] messageIds = sendResult.MessageIds;
+
+            // هزینه ارسال
+            decimal cost = sendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Pack Id: {packId} " +
                 $"\n - Message Ids: [{string.Join(", ", messageIds)}] " +
                 $"\n - Cost: {cost}";
 
-            Console.Out.WriteLine(resultDescription);
+            await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            var errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
 
-            Console.Out.WriteLine(errorDescription);
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
+
+            await Console.Out.WriteLineAsync(errorDescription);
         }
     }
 
     /// <summary>
-    /// نمونه ارسال نظیر به نظیر سینک
+    /// نمونه ارسال نظیر به نظیر
     /// https://app.sms.ir/developer/help/likeToLike
     /// </summary>
-    public static void SendSampleLikeToLike()
+    public static async Task SendLikeToLikeAsync()
     {
         try
         {
@@ -157,35 +185,48 @@ public static class SendSamples
             int? sendDateTime = null;
 
             // انجام ارسال نظیر به نظیر
-            var sendResult = smsIr.LikeToLikeSend(lineNumber, messageTexts, mobiles, sendDateTime);
+            var response = await smsIr.LikeToLikeSendAsync(lineNumber, messageTexts, mobiles, sendDateTime);
 
             // ارسال شما در اینجا با موفقیت انجام شده‌است.
 
-            //شناسه دسته پیامکی ارسال شده
-            Guid packId = sendResult.Data.PackId;
+            // گرفتن بخش دیتا خروجی
+            SendResult sendResult = response.Data;
 
-            //لیست شناسه پیامک‌های ارسال شده
-            int?[] messageIds = sendResult.Data.MessageIds;
+            // شناسه مجموعه ارسال ارسال شده
+            Guid packId = sendResult.PackId;
 
-            //هزینه ارسال
-            decimal cost = sendResult.Data.Cost;
+            // لیست شناسه پیامک‌های ارسال شده
+            int?[] messageIds = sendResult.MessageIds;
+
+            // هزینه ارسال
+            decimal cost = sendResult.Cost;
 
             string resultDescription = "Your message was sent successfully." +
                 $"\n - Pack Id: {packId} " +
                 $"\n - Message Ids: [{string.Join(", ", messageIds)}] " +
                 $"\n - Cost: {cost}";
 
-            Console.Out.WriteLine(resultDescription);
+            await Console.Out.WriteLineAsync(resultDescription);
         }
-        catch (Exception ex) // ارسال ناموفق
+        catch (Exception ex) // درخواست ناموفق
         {
             // جدول توضیحات کد وضعیت
             // https://app.sms.ir/developer/help/statusCode
 
-            var errorDescription = "Unable to send SMS message." +
-                $"\n - Error: {ex.Message}";
+            string errorName = ex.GetType().Name;
+            string errorNameDescription = errorName switch
+            {
+                "UnauthorizedException" => "Token is not valid or access denied",
+                "LogicalException" => "Please fix the request parameters",
+                "TooManyRequestException" => "Request count has exceed the limitation",
+                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
+                _ => "Can not send the request",
+            };
 
-            Console.Out.WriteLine(errorDescription);
+            var errorDescription = "There is a problem with the request." +
+                $"\n - Error: {errorName} - {errorNameDescription} - {ex.Message}";
+
+            await Console.Out.WriteLineAsync(errorDescription);
         }
     }
 }

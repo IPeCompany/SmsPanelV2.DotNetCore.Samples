@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IPE.SmsIrSamples.DotNetCore;
 
-public static class SendSamples
+public static class SendAsyncSamples
 {
     /// <summary>
     /// نمونه ارسال وریفای

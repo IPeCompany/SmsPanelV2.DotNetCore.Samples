@@ -2,15 +2,15 @@
 using IPE.SmsIrClient.Models.Requests;
 using System;
 
-namespace IPE.SmsIrSamples.DotNetCore.Sync;
+namespace IPE.SmsIrSamples.DotNetCore;
 
-public static class SendSamples
+public static class SendSyncSamples
 {
     /// <summary>
     /// نمونه ارسال وریفای سینک
     /// https://app.sms.ir/developer/help/verify
     /// </summary>
-    public static void SendSampleVerify()
+    public static void SendVerify()
     {
         try
         {
@@ -72,7 +72,7 @@ public static class SendSamples
     /// نمونه ارسال گروهی سینک
     /// https://app.sms.ir/developer/help/bulk
     /// </summary>
-    public static void SendSampleBulk()
+    public static void SendBulk()
     {
         try
         {
@@ -130,7 +130,7 @@ public static class SendSamples
     /// نمونه ارسال نظیر به نظیر سینک
     /// https://app.sms.ir/developer/help/likeToLike
     /// </summary>
-    public static void SendSampleLikeToLike()
+    public static void SendLikeToLike()
     {
         try
         {

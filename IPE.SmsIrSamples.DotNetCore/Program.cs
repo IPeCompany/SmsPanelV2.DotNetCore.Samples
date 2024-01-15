@@ -3,9 +3,9 @@ using System;
 
 try
 {
-    //await SendSamples.SendVerifyAsync();
-    //await SendSamples.SendBulkAsync();
-    //await SendSamples.SendLikeToLikeAsync();
+    //await SendAsyncSamples.SendVerifyAsync();
+    //await SendAsyncSamples.SendBulkAsync();
+    //await SendAsyncSamples.SendLikeToLikeAsync();
     await Console.Out.WriteLineAsync("Finished!");
 }
 catch (Exception ex)

@@ -1,19 +1,42 @@
-﻿using IPE.SmsIrSamples.DotNetCore;
+﻿using IPE.SmsIrSamples.DotNetCore.Report.Account;
+using IPE.SmsIrSamples.DotNetCore.Report.Receive;
+using IPE.SmsIrSamples.DotNetCore.Report.Send;
+using IPE.SmsIrSamples.DotNetCore.Send;
 using System;
 
 try
 {
-    // send samples
-    //await SendAsyncSamples.SendVerifyAsync();
-    //await SendAsyncSamples.SendBulkAsync();
-    //await SendAsyncSamples.SendLikeToLikeAsync();
+    ///////////////// sends
 
-    // get send report samples
-    //await GetSendReportAsyncSamples.GetSendLiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSendArchiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSingleMessageReportAsync();
-    //await GetSendReportAsyncSamples.GetSendPacksLiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSendPackReportAsync();
+    //await SendVerifySamples.SendVerifyAsync();
+    //await SendBulkSamples.SendBulkAsync();
+    //await SendLikeToLikeSamples.SendLikeToLikeAsync();
+
+    //await RemoveScheduledPackSamples.RemoveScheduledPackAsync();
+
+    ///////////////// send reports
+
+    ////// get send reports
+    //await GetSendLiveReportSamples.GetSendLiveReportAsync();
+    //await GetSendArchiveReportSamples.GetSendArchiveReportAsync();
+
+    ////// get single message
+    //await GetSingleMessageSamples.GetSingleMessageReportAsync();
+
+    ////// get send packs
+    //await GetSendPackSamples.GetSendPackLiveReportAsync();
+    //await GetSendPacksSamples.GetSendPacksLiveReportAsync();
+
+    ///////////////// receive reports
+
+    //await GetLatestReceivesSamples.GetLatestReceivesAsync();
+    //await GetReceiveLiveReportSamples.GetReceiveLiveReportAsync();
+    //await GetReceiveArchiveReportSamples.GetReceiveArchiveReportAsync();
+
+    ///////////////// account
+
+    //await GetCurrentCreditSamples.GetCurrentCreditAsync();
+    //await GetLinesSamples.GetLinesAsync();
 
     await Console.Out.WriteLineAsync("Finished!");
 }

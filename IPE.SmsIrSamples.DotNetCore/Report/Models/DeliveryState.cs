@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace IPE.SmsIrSamples.DotNetCore;
+namespace IPE.SmsIrSamples.DotNetCore.Report.Models;
 
 public enum DeliveryState : byte
 {

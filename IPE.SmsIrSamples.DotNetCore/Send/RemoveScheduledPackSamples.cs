@@ -11,7 +11,7 @@ public static class RemoveScheduledPackSamples
     /// حذف ارسال زمانبندی شده
     /// به‌منظور حذف و انصراف از ارسال زمانبندی شده می‌توانید از متد زیر استفاده نمایید.
     /// در این متد، از شناسه مجموعه ارسال استفاده می‌شود.
-    /// https://app.sms.ir/developer/help/bulk
+    /// https://app.sms.ir/developer/help/deleteScheduled
     /// </summary>
     public static async Task RemoveScheduledPackAsync()
     {

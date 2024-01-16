@@ -1,4 +1,5 @@
-﻿using IPE.SmsIrSamples.DotNetCore.Report.Receive;
+﻿using IPE.SmsIrSamples.DotNetCore.Report.Account;
+using IPE.SmsIrSamples.DotNetCore.Report.Receive;
 using IPE.SmsIrSamples.DotNetCore.Report.Send;
 using IPE.SmsIrSamples.DotNetCore.Send;
 using System;
@@ -31,6 +32,11 @@ try
     //await GetLatestReceivesSamples.GetLatestReceivesAsync();
     //await GetReceiveLiveReportSamples.GetReceiveLiveReportAsync();
     //await GetReceiveArchiveReportSamples.GetReceiveArchiveReportAsync();
+
+    ///////////////// account
+
+    //await GetCurrentCreditSamples.GetCurrentCreditAsync();
+    //await GetLinesSamples.GetLinesAsync();
 
     await Console.Out.WriteLineAsync("Finished!");
 }

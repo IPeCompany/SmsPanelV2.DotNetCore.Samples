@@ -1,2 +1,6 @@
-# SmsPanelV2.DotNet.Samples
-Samples of SMS.ir .NET Packages
+# SMS.ir API V2 - .NET Core Samples
+
+- [Send Verify, Bulk, and LikeToLike SMS](IPE.SmsIrSamples.DotNetCore/Send)
+- [Retrieve Send Reports](IPE.SmsIrSamples.DotNetCore/Report/Send)
+- [Retrieve Receive Reports](IPE.SmsIrSamples.DotNetCore/Report/Receive)
+- [Access Account Information](IPE.SmsIrSamples.DotNetCore/Account)

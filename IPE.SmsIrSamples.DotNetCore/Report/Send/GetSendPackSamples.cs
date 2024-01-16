@@ -10,6 +10,7 @@ public static class GetSendPackSamples
 {
     /// <summary>
     /// گزارش مجموعه ارسال
+    /// شما می‌توانید با استفاده از شناسه مجموعه ارسال، گزارشی از پیامک‌های ارسالی در آن درخواست به‌ همراه وضعیت‌هایشان را دریافت نمایید.
     /// https://app.sms.ir/developer/help/sendPack
     /// </summary>
     public static async Task GetSendPackLiveReportAsync()

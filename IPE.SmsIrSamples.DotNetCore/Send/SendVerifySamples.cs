@@ -9,7 +9,10 @@ namespace IPE.SmsIrSamples.DotNetCore.Send;
 public static class SendVerifySamples
 {
     /// <summary>
-    /// نمونه ارسال وریفای
+    /// ارسال وریفای
+    /// به منظور ارسال کد اعتبارسنجی، کد تایید، فاکتور خرید و به طور کلی پیامک‌هایی با اولویت بالا
+    /// برای استفاده از این نوع ارسال ابتدا قالب پیامک خود را در پنل (بخش ارسال سریع) مشخص نمایید.
+    /// این نوع از ارسال با خطوط خدماتی ارسال میشود
     /// https://app.sms.ir/developer/help/verify
     /// </summary>
     public static async Task SendVerifyAsync()
@@ -84,7 +87,10 @@ public static class SendVerifySamples
     }
 
     /// <summary>
-    /// نمونه ارسال وریفای سینک
+    /// ارسال وریفای
+    /// به منظور ارسال کد اعتبارسنجی، کد تایید، فاکتور خرید و به طور کلی پیامک‌هایی با اولویت بالا
+    /// برای استفاده از این نوع ارسال ابتدا قالب پیامک خود را در پنل (بخش ارسال سریع) مشخص نمایید.
+    /// این نوع از ارسال با خطوط خدماتی ارسال میشود
     /// https://app.sms.ir/developer/help/verify
     /// </summary>
     public static void SendVerify()

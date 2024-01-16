@@ -8,7 +8,8 @@ namespace IPE.SmsIrSamples.DotNetCore.Send;
 public static class SendLikeToLikeSamples
 {
     /// <summary>
-    /// نمونه ارسال نظیر به نظیر
+    /// ارسال نظیر به نظیر
+    /// این متد برای ارسال به گروهی از موبایل‌ها با متن‌های متفاوت برای هر کدام، مورد استفاده قرار می‌گیرد.
     /// https://app.sms.ir/developer/help/likeToLike
     /// </summary>
     public static async Task SendLikeToLikeAsync()
@@ -84,7 +85,8 @@ public static class SendLikeToLikeSamples
     }
 
     /// <summary>
-    /// نمونه ارسال نظیر به نظیر سینک
+    /// ارسال نظیر به نظیر
+    /// این متد برای ارسال به گروهی از موبایل‌ها با متن‌های متفاوت برای هر کدام، مورد استفاده قرار می‌گیرد.
     /// https://app.sms.ir/developer/help/likeToLike
     /// </summary>
     public static void SendLikeToLike()

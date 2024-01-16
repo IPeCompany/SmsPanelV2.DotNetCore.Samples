@@ -10,6 +10,7 @@ public static class GetSendArchiveReportSamples
 {
     /// <summary>
     /// گزارش ارسال‌های آرشیو شده
+    /// با فراخوانی متد زیر، گزارشی از ارسال‌های انجام شده در گذشته (تا انتهای روز قبل)، را دریافت خواهید نمود.
     /// https://app.sms.ir/developer/help/sendArchive
     /// </summary>
     public static async Task GetSendArchiveReportAsync()
@@ -30,7 +31,7 @@ public static class GetSendArchiveReportSamples
             // زمان به صورت یونیکس تایم می‌باشد مثلا 1703190600 معادل 1 دی 1402 می‌باشد
             int? toDateUnixTime = null;
 
-            // گزارش‌ها در صفحات 100 تایی قابل دریافت می‌باشد.
+            // گزارش‌ها در صفحات حداکثر 100 تایی قابل دریافت می‌باشد.
 
             // شماره صفحه‌ - دارای پیشفرض 1
             int pageNumber = 1;

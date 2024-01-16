@@ -8,7 +8,8 @@ namespace IPE.SmsIrSamples.DotNetCore.Report.Send;
 public static class GetSendPacksSamples
 {
     /// <summary>
-    /// گزارش محموعه ارسال‌های روز
+    /// گزارش مجموعه ارسال‌های روز
+    /// شما می‌توانید با استفاده از این گزارش اطلاعات کلی مجموعه ارسال‌های روز جاری را دریافت نمایید.
     /// https://app.sms.ir/developer/help/livePack
     /// </summary>
     public static async Task GetSendPacksLiveReportAsync()
@@ -18,7 +19,7 @@ public static class GetSendPacksSamples
             // کلید ای‌پی‌آی ساخته‌شده در سامانه
             SmsIr smsIr = new SmsIr("uw7ppC4vGibwGFgAwLyRexHjyEb82yFFEXbbwOoOVT9GVMAQXoDO1vTkx59cOgoJ");
 
-            // گزارش‌ها در صفحات 100 تایی قابل دریافت می‌باشد.
+            // گزارش‌ها در صفحات حداکثر 100 تایی قابل دریافت می‌باشد.
 
             // شماره صفحه‌ - دارای پیشفرض 1
             int pageNumber = 1;

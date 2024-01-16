@@ -10,6 +10,7 @@ public static class GetSendLiveReportSamples
 {
     /// <summary>
     /// گزارش ارسال‌های روز
+    /// با استفاده از متد زیر، گزارشی از ارسال‌های انجام شده در روز جاری قابل دریافت است.
     /// https://app.sms.ir/developer/help/sendLive
     /// </summary>
     public static async Task GetSendLiveReportAsync()
@@ -19,7 +20,7 @@ public static class GetSendLiveReportSamples
             // کلید ای‌پی‌آی ساخته‌شده در سامانه
             SmsIr smsIr = new SmsIr("uw7ppC4vGibwGFgAwLyRexHjyEb82yFFEXbbwOoOVT9GVMAQXoDO1vTkx59cOgoJ");
 
-            // گزارش‌ها در صفحات 100 تایی قابل دریافت می‌باشد.
+            // گزارش‌ها در صفحات حداکثر 100 تایی قابل دریافت می‌باشد.
 
             // شماره صفحه‌ - دارای پیشفرض 1
             int pageNumber = 1;

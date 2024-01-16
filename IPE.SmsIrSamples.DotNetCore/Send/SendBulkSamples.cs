@@ -8,7 +8,8 @@ namespace IPE.SmsIrSamples.DotNetCore.Send;
 public static class SendBulkSamples
 {
     /// <summary>
-    /// نمونه ارسال گروهی
+    /// ارسال گروهی
+    /// این متد برای ارسال یک متن پیامک به گروهی از شماره موبایل ها مورد استفاده قرار میگیرد.
     /// https://app.sms.ir/developer/help/bulk
     /// </summary>
     public static async Task SendBulkAsync()
@@ -79,7 +80,8 @@ public static class SendBulkSamples
     }
 
     /// <summary>
-    /// نمونه ارسال گروهی سینک
+    /// ارسال گروهی
+    /// این متد برای ارسال یک متن پیامک به گروهی از شماره موبایل ها مورد استفاده قرار میگیرد.
     /// https://app.sms.ir/developer/help/bulk
     /// </summary>
     public static void SendBulk()

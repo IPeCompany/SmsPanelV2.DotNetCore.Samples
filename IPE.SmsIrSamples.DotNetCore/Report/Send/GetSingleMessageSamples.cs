@@ -10,6 +10,7 @@ public static class GetSingleMessageSamples
 {
     /// <summary>
     /// گزارش پیامک - دریافت وضعیت
+    /// با فراخوانی این متد، به دریافت اطلاعات پیامک و همینطور اطلاع از وضعیت آن اقدام نمایید.
     /// https://app.sms.ir/developer/help/sendReports
     /// </summary>
     public static async Task GetSingleMessageReportAsync()

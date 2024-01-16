@@ -75,11 +75,11 @@ public static class GetSingleMessageSamples
             string errorName = ex.GetType().Name;
             string errorNameDescription = errorName switch
             {
-                "UnauthorizedException" => "Token is not valid or access denied",
-                "LogicalException" => "Please fix the request parameters",
-                "TooManyRequestException" => "Request count has exceed the limitation",
-                "UnexpectedException" or "InvalidOperationException" => "Remote server error",
-                _ => "Can not send the request",
+                "UnauthorizedException" => "The provided token is not valid or access is denied.",
+                "LogicalException" => "Please check and correct the request parameters.",
+                "TooManyRequestException" => "The request count has exceeded the allowed limit.",
+                "UnexpectedException" or "InvalidOperationException" => "An unexpected error occurred on the remote server.",
+                _ => "Unable to send the request due to an unspecified error.",
             };
 
             var errorDescription = "There is a problem with the request." +

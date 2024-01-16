@@ -11,6 +11,8 @@ try
     //await SendBulkSamples.SendBulkAsync();
     //await SendLikeToLikeSamples.SendLikeToLikeAsync();
 
+    //await RemoveScheduledPackSamples.RemoveScheduledPackAsync();
+
     ///////////////// send reports
 
     ////// get send reports

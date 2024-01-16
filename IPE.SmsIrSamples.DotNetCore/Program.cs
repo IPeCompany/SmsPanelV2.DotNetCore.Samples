@@ -1,19 +1,25 @@
-﻿using IPE.SmsIrSamples.DotNetCore;
+﻿using IPE.SmsIrSamples.DotNetCore.Report.Send;
+using IPE.SmsIrSamples.DotNetCore.Send;
 using System;
 
 try
 {
-    // send samples
-    //await SendAsyncSamples.SendVerifyAsync();
-    //await SendAsyncSamples.SendBulkAsync();
-    //await SendAsyncSamples.SendLikeToLikeAsync();
+    // sends
+    //await SendVerifySamples.SendVerifyAsync();
+    //await SendBulkSamples.SendBulkAsync();
+    //await SendLikeToLikeSamples.SendLikeToLikeAsync();
 
-    // get send report samples
-    //await GetSendReportAsyncSamples.GetSendLiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSendArchiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSingleMessageReportAsync();
-    //await GetSendReportAsyncSamples.GetSendPacksLiveReportAsync();
-    //await GetSendReportAsyncSamples.GetSendPackReportAsync();
+    // get send reports
+
+    //await GetSendLiveReportSamples.GetSendLiveReportAsync();
+    //await GetSendArchiveReportSamples.GetSendArchiveReportAsync();
+
+    // get single message
+    //await GetSingleMessageSamples.GetSingleMessageReportAsync();
+
+    // get send packs
+    //await GetSendPackSamples.GetSendPackLiveReportAsync();
+    //await GetSendPacksSamples.GetSendPacksLiveReportAsync();
 
     await Console.Out.WriteLineAsync("Finished!");
 }

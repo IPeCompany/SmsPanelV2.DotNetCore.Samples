@@ -1,7 +1,7 @@
 ﻿using MD.PersianDateTime.Standard;
 using System;
 
-namespace IPE.SmsIrSamples.DotNetCore;
+namespace IPE.SmsIrSamples.DotNetCore.Helpers;
 
 /// <summary>
 /// برای تبدیل تاریخ میلادی به زمان یونیکس به دو تابع نوشته شده در زیر دقت کنید:
@@ -21,7 +21,7 @@ namespace IPE.SmsIrSamples.DotNetCore;
 /// https://timestamp.ir/
 /// https://navidak.ir/timestamp-conversion
 /// </summary>
-public static class UnixTimeSamples
+public static class UnixTimeHelpers
 {
     // روش اول تبدیل تاریخ میلادی به زمان یونیکس
     public static int ToUnixTime(this DateTime utcDateTime)

@@ -4,8 +4,8 @@ namespace IPE.SmsIrSamples.DotNetCore.Report.Models;
 
 public enum DeliveryState : byte
 {
-    [Description("نامشخص")]
-    Unknown = 0,
+    [Description("در حال بررسی")]
+    Pending = 0,
 
     [Description("رسیده به گوشی")]
     Delivered = 1,

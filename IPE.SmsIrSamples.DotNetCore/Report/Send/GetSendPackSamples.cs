@@ -51,7 +51,7 @@ public static class GetSendPackSamples
                 int sendDateTimeInUnix = message.SendDateTime;
 
                 // وضعیت دریافت
-                DeliveryState delivertState = message.DeliveryState.HasValue ? (DeliveryState)message.DeliveryState : DeliveryState.Unknown;
+                DeliveryState delivertState = message.DeliveryState.HasValue ? (DeliveryState)message.DeliveryState : DeliveryState.Pending;
                 string deliveryStateDescription = delivertState.ToString();
 
                 // زمان دریافت

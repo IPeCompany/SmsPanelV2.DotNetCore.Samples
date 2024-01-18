@@ -48,7 +48,7 @@ public static class GetSingleMessageSamples
 
             // وضعیت دریافت
             DeliveryState delivertState = messageReport.DeliveryState.HasValue ?
-                (DeliveryState)messageReport.DeliveryState : DeliveryState.Unknown;
+                (DeliveryState)messageReport.DeliveryState : DeliveryState.Pending;
             string deliveryStateDescription = delivertState.ToString();
 
             // زمان دریافت
